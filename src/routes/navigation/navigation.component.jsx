@@ -1,6 +1,6 @@
 import { Outlet, Link } from 'react-router-dom';
 import { useContext } from 'react';
-import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
+import CrwnLogo from '../../assets/crown.svg';
 import { UserContext } from '../../contexts/user.context';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 import './navigation.styles.scss';
@@ -16,7 +16,7 @@ const Navigation = () => {
 		<>
 			<div className="navigation">
 				<Link className="logo-container" to="/">
-					<CrwnLogo className="logo" />
+					<img src={CrwnLogo} alt='Logo' className="logo" />
 				</Link>
 				<div className="nav-links-container">
 					<Link className="nav-link" to="/shop">

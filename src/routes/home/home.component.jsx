@@ -31,6 +31,7 @@ const Home = () => {
     ]
     return (
         <>
+        {/* Child routes will render right here in the outlet */}
             <Outlet />
             <Directory categories={categories} />
         </>
