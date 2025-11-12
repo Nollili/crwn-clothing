@@ -30,7 +30,6 @@ const SignInForm = () => {
 
 		try {
 			const user = await signInAuthUserWithEmailAndPassword(email, password);
-			console.log(user);
 
 			resetFormFields();
 		} catch (error) {
@@ -42,7 +41,7 @@ const SignInForm = () => {
 					alert('no user associated with this email');
 					break;
 				default:
-					console.log(error);
+					console.error(error);
 			}
 		}
 	};

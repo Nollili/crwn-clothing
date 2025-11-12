@@ -6,8 +6,8 @@ import './navigation.styles.scss';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 
 const Navigation = () => {
-	const { currentUser, setCurrentUser } = useContext(UserContext);
-console.log(currentUser)
+	const { currentUser } = useContext(UserContext);
+
 	return (
 		<>
 			<div className="navigation">

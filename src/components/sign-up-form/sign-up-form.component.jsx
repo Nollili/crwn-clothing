@@ -42,7 +42,7 @@ const SignUpForm = () => {
 			if (error.code === 'auth/email-already-in-use') {
 				alert('Cannot create user, email already in use');
 			} else {
-				console.log('error in user creation', error);
+				console.error('error in user creation', error);
 			}
 		}
 	};
