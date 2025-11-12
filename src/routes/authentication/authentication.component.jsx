@@ -21,20 +21,8 @@ const Authentication = () => {
 		fetchData();
 	}, []);
 
-	// const logGoogleUser = async () => {
-	// 	const { user } = await signInWithGooglePopup();
-	// 	await createUserDocumentFromAuth(user);
-	// 	console.log(user);
-	// };
-
 	return (
 		<div className='authentication-container'>
-			{/* <h1>Sign In Page</h1>
-			<button onClick={logGoogleUser}>Sign in with Google Popup</button>
-
-			<button onClick={signInWithGoogleRedirect}>
-				Sign in with Google Redirect
-			</button> */}
 			<SignInForm />
 			<SignUpForm />
 		</div>
