@@ -4,7 +4,7 @@ export const CATEGORIES_INITIAL_STATE = {
   categories: [],
   isLoading: false,
   error: null,
-}
+};
 
 export const categoriesReducer = (state = CATEGORIES_INITIAL_STATE, action = {}) => {
   const { type, payload } = action;
@@ -15,20 +15,20 @@ export const categoriesReducer = (state = CATEGORIES_INITIAL_STATE, action = {})
         ...state,
         categories: payload,
         isLoading: false,
-        error: null
-      }
+        error: null,
+      };
     case CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START:
       return {
         ...state,
-        isLoading: true
-      }
+        isLoading: true,
+      };
     case CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_FAILED:
       return {
         ...state,
         isLoading: false,
-        error: payload
-      }
+        error: payload,
+      };
     default:
       return state;
   }
-}
+};
