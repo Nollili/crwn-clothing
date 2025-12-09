@@ -30,6 +30,14 @@ const PaymentForm = () => {
       },
       body: JSON.stringify({ amount: amount * 100 }),
     }).then((res) => {
+      if (res.status !== 200) {
+        alert(
+          'Backend connection failed with status: ' +
+            res.status +
+            '. Ensure you are testing on http://localhost:8888 (Netlify CLI port), NOT localhost:5173.'
+        );
+        return { paymentIntent: { client_secret: '' } };
+      }
       return res.json();
     });
 
