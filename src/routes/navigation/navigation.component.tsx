@@ -24,24 +24,32 @@ const Navigation = () => {
 
   return (
     <Fragment>
+      {/* Main navigation container */}
       <NavigationContainer>
-        <LogoContainer to='/'>
-          <img src={CrwnLogo} alt="Crown Logo" className='logo' />
-        </LogoContainer>
-        <NavLinks>
-          <NavLink to='/shop'>SHOP</NavLink>
+      {/* Logo links to the home page */}
+      <LogoContainer to='/'>
+        <img src={CrwnLogo} alt="Crown Logo" className='logo' />
+      </LogoContainer>
+      {/* Navigation links */}
+      <NavLinks>
+        {/* Link to the shop page */}
+        <NavLink to='/shop'>SHOP</NavLink>
 
-          {currentUser ? (
-            <NavLink as='span' onClick={signOutUser}>
-              SIGN OUT
-            </NavLink>
-          ) : (
-            <NavLink to='/auth'>SIGN IN</NavLink>
-          )}
-          <CartIcon />
-        </NavLinks>
-        {isCartOpen && <CartDropdown />}
+        {/* Show SIGN OUT if user is logged in, otherwise show SIGN IN */}
+        {currentUser ? (
+        <NavLink to='/auth' as='span' onClick={signOutUser}>
+          SIGN OUT
+        </NavLink>
+        ) : (
+        <NavLink to='/auth'>SIGN IN</NavLink>
+        )}
+        {/* Cart icon component */}
+        <CartIcon />
+      </NavLinks>
+      {/* Show cart dropdown if cart is open */}
+      {isCartOpen && <CartDropdown />}
       </NavigationContainer>
+      {/* Render child routes */}
       <Outlet />
     </Fragment>
   );

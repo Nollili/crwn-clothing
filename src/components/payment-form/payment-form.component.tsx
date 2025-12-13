@@ -19,7 +19,7 @@ type CurrentUser = {
 
 // Type guard to check if the card element is a valid StripeCardElement (not null)
 // This helps TypeScript know that card is not null after this check
-const ifValidCardElement = (
+const isValidCardElement = (
   card: StripeCardElement | null
 ): card is StripeCardElement => card !== null;
 
@@ -63,7 +63,7 @@ const PaymentForm = () => {
 
     const cardDetails = elements.getElement(CardElement);
 
-    if (!ifValidCardElement(cardDetails)) {
+    if (!isValidCardElement(cardDetails)) {
       setIsProcessingPayment(false);
       return;
     }

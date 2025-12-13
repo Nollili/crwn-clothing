@@ -16,19 +16,25 @@ import { setCurrentUser } from './store/user/user.reducer';
 import { UserData } from './store/user/user.types';
 
 const App = () => {
+  // Get the dispatch function from Redux to dispatch actions
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // Set up a listener for authentication state changes (login/logout)
     const unsubscribe = onAuthStateChangedListener((user) => {
       if (user) {
+        // If a user is authenticated, create or update their document in Firestore
         createUserDocumentFromAuth(user);
       }
+      // Pick only the accessToken and email from the user object, if user exists
       const pickedUser =
         user && (({ accessToken, email }) => ({ accessToken, email }))(user as any);
 
+      // Dispatch the setCurrentUser action to update the Redux store with the user data
       dispatch(setCurrentUser(pickedUser as unknown as UserData));
     });
 
+    // Cleanup: unsubscribe from the listener when the component unmounts
     return unsubscribe;
   }, []);
 
